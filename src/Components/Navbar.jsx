@@ -1,4 +1,5 @@
-import React from 'react';
+
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -9,18 +10,19 @@ const Navbar = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                        <li className=' text-lg font-semibold'><a>Home</a></li>
-                        <li className=' text-lg font-semibold'><a>Listed Books</a></li>
-                        <li className=' text-lg font-semibold'><a>Pages to Read</a></li>
+                        <li><a>Home</a></li>
+                        <li><a>Listed Books</a></li>
+                        <li><a>Pages to Read</a></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-3xl font-bold">Book Vibe</a>
+                <Link to='/'><a className="btn btn-ghost text-3xl font-bold">Book Vibe</a></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    <li><a>Home</a></li>
-                    <li><a>Listed Books</a></li>
-                    <li><a>Pages to Read</a></li>
+                <ul className="menu menu-horizontal px-1 flex items-center gap-5">
+                    <NavLink to='/' className={({isActive}) => isActive ? 'text-green-500 border font-semibold text-lg p-2 rounded-lg ' : 'font-semibold' }><a>Home</a></NavLink>
+                    <NavLink to='/ListedBook' className={({isActive}) => isActive ? 'text-green-500 border font-semibold text-lg p-2 rounded-lg ' : 'font-semibold' }><a>Listed Books</a></NavLink>
+                    <NavLink to='/pageToRead' className={({isActive}) => isActive ? 'text-green-500 border font-semibold text-lg p-2 rounded-lg ' : 'font-semibold' }><a>Pages to Read</a></NavLink>
+                    
                 </ul>
             </div>
             <div className="navbar-end">
