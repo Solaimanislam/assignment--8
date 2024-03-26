@@ -19,9 +19,9 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 flex items-center gap-5">
-                    <NavLink to='/' className={({isActive}) => isActive ? 'text-green-500 border font-semibold text-lg p-2 rounded-lg ' : 'font-semibold' }><a>Home</a></NavLink>
-                    <NavLink to='/ListedBook' className={({isActive}) => isActive ? 'text-green-500 border font-semibold text-lg p-2 rounded-lg ' : 'font-semibold' }><a>Listed Books</a></NavLink>
-                    <NavLink to='/pageToRead' className={({isActive}) => isActive ? 'text-green-500 border font-semibold text-lg p-2 rounded-lg ' : 'font-semibold' }><a>Pages to Read</a></NavLink>
+                    <NavLink to='/' className={({isActive}) => isActive ? 'text-green-500 border border-green-400 font-semibold text-lg p-2 rounded-lg ' : 'font-semibold' }><a>Home</a></NavLink>
+                    <NavLink to='/ListedBook' className={({isActive}) => isActive ? 'text-green-500 border border-green-400 font-semibold text-lg p-2 rounded-lg ' : 'font-semibold' }><a>Listed Books</a></NavLink>
+                    <NavLink to='/pageToRead' className={({isActive}) => isActive ? 'text-green-500 border border-green-400 font-semibold text-lg p-2 rounded-lg ' : 'font-semibold' }><a>Pages to Read</a></NavLink>
                     
                 </ul>
             </div>

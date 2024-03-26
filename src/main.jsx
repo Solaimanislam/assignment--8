@@ -7,6 +7,7 @@ import Home from './Pages/Home.jsx'
 import PageToRead from './Pages/PageToRead.jsx'
 import ListedBooks from './Pages/ListedBooks.jsx'
 import MainLayouts from './Layouts/MainLayouts.jsx'
+import Book from './Pages/Book.jsx'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,12 @@ const router = createBrowserRouter([
       {
         path: '/ListedBook',
         element: <ListedBooks></ListedBooks>
+      },
+      {
+        path: '/book/:id',
+        element: <Book></Book>,
+        // loader: ({params}) => fetch(`/public/data.json/${params.id}`) 
+       
       },
       {
         path: '/pageToRead',
