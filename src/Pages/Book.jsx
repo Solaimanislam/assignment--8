@@ -1,17 +1,18 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import useBook from "../Hooks/useBook";
 import { useEffect, useState } from "react";
 import { saveBook } from "../utils";
+import { saveBookW } from "../utils/WishIndex";
 
 
 const Book = () => {
-    const book = useLoaderData();
+    
 
 
     const [singleData, setSingleData] = useState({});
     const { id } = useParams();
     
-    const { data, loading } = useBook();
+    const { data } = useBook();
     
 
     useEffect(() => {
@@ -20,11 +21,15 @@ const Book = () => {
         setSingleData(singleDataBook)
     }, [data, id]);
 
-    const { bookId, bookName, author, image, review, totalPages, rating, category, tags, publisher, yearOfPublishing } = singleData || {};
+    const { bookName, author, image, review, totalPages, rating, category, tags, publisher, yearOfPublishing } = singleData || {};
 
     const handleRead = singleData => {
         // console.log(singleData);
         saveBook(singleData);
+    }
+    const handleWish = singleData => {
+        console.log(singleData);
+        saveBookW(singleData);
     }
 
     return (
@@ -51,7 +56,7 @@ const Book = () => {
 
                 <div className="card-actions">
                     <button onClick={() => handleRead(singleData)} className="btn px-6 py-4 border border-green-400 font-semibold">Read</button>
-                    <button className="btn bg-[#50B1C9] text-white px-6 py-4 font-semibold">Wishlist</button>
+                    <button onClick={() => handleWish(singleData)} className="btn bg-[#50B1C9] text-white px-6 py-4 font-semibold">Wishlist</button>
                 </div>
             </div>
         </div>

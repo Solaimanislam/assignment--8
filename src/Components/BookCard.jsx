@@ -14,7 +14,7 @@ const BookCard = ({book}) => {
                 <a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum"></a>
                 <a rel="noopener noreferrer" href="#" className=" flex justify-around  text-xl font-medium tracking-wider  hover:underline text-[#23BE0A]">
                 {
-                    tags.slice(0, 2).map((item) => (
+                    tags?.slice(0, 2).map((item) => (
                         <p key={item.bookId}>{item}</p>
                     ))
                 }
