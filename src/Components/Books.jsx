@@ -1,10 +1,13 @@
 
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import BookCard from "./BookCard";
+import Loader from "./Loader";
 
 
 const Books = () => {
     const books = useLoaderData();
+    const navigation = useNavigation();
+    if(navigation.state === 'loading') return <Loader></Loader>
     
     return (
         <section className="py-6 sm:py-12  dark:bg-gray-100 text-gray-100 dark:text-gray-800">

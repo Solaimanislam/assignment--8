@@ -11,7 +11,7 @@ const useBook = () => {
             const res = await fetch('/public/data.json');
             const data = await res.json();
             setData(data);
-            console.log(data);
+            // console.log(data);
             setLoading(false);
         };
         fetchData(data);
