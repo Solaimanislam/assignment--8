@@ -18,11 +18,3 @@ export const saveBook = book => {
     localStorage.setItem('books', JSON.stringify(books))
     toast.success('Books Added to Read!')
 }
-
-// Delete
-export const deleteBook = id => {
-    let books = getBooks();
-    const remaining = books.filter(b => b.bookId !== id)
-    localStorage.setItem('books', JSON.stringify(remaining))
-    toast.success( 'Book Delete successfully!')
-}

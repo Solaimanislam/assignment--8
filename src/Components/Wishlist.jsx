@@ -14,7 +14,7 @@ const Wishlist = () => {
     return (
         <div className="container lg:w-[830px] lg:mx-32 space-y-6 mt-8 ">
             {
-                booksW.map(book => <WishCard book={book} key={book.bookId} ></WishCard>)
+                booksW?.map(book => <WishCard book={book} key={book.bookId} ></WishCard>)
             }
         </div>
     );
