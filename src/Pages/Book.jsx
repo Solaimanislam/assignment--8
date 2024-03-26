@@ -1,4 +1,4 @@
-import {  useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import useBook from "../Hooks/useBook";
 import { useEffect, useState } from "react";
 import { saveBook } from "../utils";
@@ -6,7 +6,7 @@ import { saveBookW } from "../utils/WishIndex";
 
 
 const Book = () => {
-    
+    const book = useLoaderData() || [];
 
 
     const [singleData, setSingleData] = useState({});
@@ -16,7 +16,7 @@ const Book = () => {
     
 
     useEffect(() => {
-        const singleDataBook = data?.find((item) => item.bookId == id);
+        const singleDataBook = book?.find((item) => item.bookId == id);
         
         setSingleData(singleDataBook)
     }, [data, id]);

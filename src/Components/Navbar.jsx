@@ -15,7 +15,7 @@ const Navbar = () => {
                         <li><a>Pages to Read</a></li>
                     </ul>
                 </div>
-                <Link to='/'><a className="btn btn-ghost text-3xl font-bold">Book Vibe</a></Link>
+                <Link to='/'><a className="btn btn-ghost lg:text-3xl lg:font-bold">Book Vibe</a></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 flex items-center gap-5">
@@ -27,7 +27,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 <a className="btn bg-[#23BE0A] text-white">Sign In</a>
-                <a className="btn ml-4 bg-[#59C6D2] text-white">Sign Up</a>
+                <a className="btn lg:ml-4 bg-[#59C6D2] text-white">Sign Up</a>
             </div>
         </div>
     );

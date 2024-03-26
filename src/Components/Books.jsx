@@ -4,8 +4,8 @@ import BookCard from "./BookCard";
 import Loader from "./Loader";
 
 
-const Books = () => {
-    const books = useLoaderData();
+const Books = ({books}) => {
+    
     const navigation = useNavigation();
     if(navigation.state === 'loading') return <Loader></Loader>
     

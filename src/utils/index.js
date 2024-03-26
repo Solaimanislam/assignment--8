@@ -16,5 +16,6 @@ export const saveBook = book => {
     }
     books.push(book);
     localStorage.setItem('books', JSON.stringify(books))
+    localStorage.setItem('booksW', JSON.stringify(books))
     toast.success('Books Added to Read!')
 }
