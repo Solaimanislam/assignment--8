@@ -9,7 +9,7 @@ import Wishlist from "../Components/Wishlist";
 import ErrorPage from "../Pages/ErrorPage";
 import FavouriteBooks from "../Pages/FavouriteBooks";
 import AboutPage from "../Pages/AboutPage";
-import FavCard from "../Components/FavCard";
+
 import FavList from "../Components/FavList";
 
 export const router = createBrowserRouter([

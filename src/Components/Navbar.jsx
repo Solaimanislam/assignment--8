@@ -14,7 +14,7 @@ const Navbar = () => {
                     <NavLink to='/ListedBook' className={({isActive}) => isActive ? 'text-green-500 border border-green-400 lg:text-lg rounded-lg ' : 'font-semibold' }><a>Listed Books</a></NavLink>
                     <NavLink to='/pageToRead' className={({isActive}) => isActive ? 'text-green-500 border border-green-400 lg:text-lg rounded-lg ' : 'font-semibold' }><a>Pages to Read</a></NavLink>
                     <NavLink to='/favouriteBooks' className={({isActive}) => isActive ? 'text-green-500 border border-green-400 lg:text-lg rounded-lg ' : 'font-semibold' }><a>Favourite Books</a></NavLink>
-                    <NavLink to='/aboutUs' className={({isActive}) => isActive ? 'text-green-500 border border-green-400 lg:text-lg rounded-lg ' : 'font-semibold' }><a>About Us</a></NavLink>
+                    <NavLink to='/aboutUs' className={({isActive}) => isActive ? 'text-green-500 border border-green-400 lg:text-lg rounded-lg ' : 'font-semibold' }><a>About Me</a></NavLink>
                     </ul>
                 </div>
                 <Link to='/'><a className="btn btn-ghost lg:text-3xl text-xl lg:font-bold">Book Vibe</a></Link>
@@ -25,7 +25,7 @@ const Navbar = () => {
                     <NavLink to='/ListedBook' className={({isActive}) => isActive ? 'text-green-500 border border-green-400 font-semibold text-lg p-2 rounded-lg ' : 'font-semibold' }><a>Listed Books</a></NavLink>
                     <NavLink to='/pageToRead' className={({isActive}) => isActive ? 'text-green-500 border border-green-400 font-semibold text-lg p-2 rounded-lg ' : 'font-semibold' }><a>Pages to Read</a></NavLink>
                     <NavLink to='/favouriteBooks' className={({isActive}) => isActive ? 'text-green-500 border border-green-400 font-semibold text-lg p-2 rounded-lg ' : 'font-semibold' }><a>Favourite Books</a></NavLink>
-                    <NavLink to='/aboutUs' className={({isActive}) => isActive ? 'text-green-500 border border-green-400 font-semibold text-lg p-2 rounded-lg ' : 'font-semibold' }><a>About Us</a></NavLink>
+                    <NavLink to='/aboutUs' className={({isActive}) => isActive ? 'text-green-500 border border-green-400 font-semibold text-lg p-2 rounded-lg ' : 'font-semibold' }><a>About Me</a></NavLink>
                     
                 </ul>
             </div>
