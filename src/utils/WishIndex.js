@@ -11,7 +11,7 @@ export const getBooksW = () => {
 export const saveBookW = book => {
     let booksW = getBooksW()
     const isExist = booksW.find(b => b.bookId === book.bookId)
-    if( isExist){
+    if(isExist){
         return toast.error('You have Already Wished this book!');
     }
     booksW.push(book);

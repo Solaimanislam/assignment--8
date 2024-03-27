@@ -1,15 +1,17 @@
+
 import { IoLocationOutline } from "react-icons/io5";
 import { MdPeopleAlt } from "react-icons/md";
 import { MdOutlineContactPage } from "react-icons/md";
 
-const WishCard = ({ book }) => {
-    // console.log(book);
-    const { bookId, image, author, bookName, tags, publisher, category, rating, yearOfPublishing, totalPages } = book;
+const FavCard = ({ book }) => {
+    const { image, author, bookName, review, tags, publisher, category, rating, yearOfPublishing, totalPages } = book;
     return (
         <div className="card space-y-4 p-3 card-side bg-base-100 border-2">
             <figure><img className=" bg-slate-400 p-3 rounded-xl" src={image} alt="Movie" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{bookName}</h2>
+                
+                <p className=" border-b-2 pb-3 font-medium"><span className=" text-lg font-bold">Review: </span>{review}</p>
                 <p className=" border-b-2 pb-3 font-medium"><span className=" text-lg font-bold">By: </span>{author}</p>
                 <div className=" flex items-center border-b-2 pb-3 ">
                     <p className=" flex items-center"><span className=" text-lg font-bold mr-4">Tags:
@@ -45,4 +47,4 @@ const WishCard = ({ book }) => {
     );
 };
 
-export default WishCard;
+export default FavCard;

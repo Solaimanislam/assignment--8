@@ -12,21 +12,33 @@ const ListedBooks = () => {
     const [sort, setSort] = useState([]);
     // setSortData(localData);
 
+    const [lData, setLData] = useState([]);
+
     useEffect(() => {
-        if (sortData === "newest") {
-          setSortData((prev) =>
-            [...prev].sort((a, b) => a.createdAt - b.createdAt)
-          );
-        } else if (sort === "asc") {
-            setSortData((prev) =>
-            [...prev].sort((a, b) => a.price - b.price)
-          );
-        } else {
-            setSortData((prev) =>
-            [...prev].sort((a, b) => b.price - a.price)
-          );
-        }
-      }, [sort]);
+        const sortsData = localData;
+        setSortData(sortsData);
+
+    }, [])
+
+    const handleRating = (localData) => {
+        console.log(localData);
+    }
+
+    // useEffect(() => {
+    //     if (sort === "rating") {
+    //       setSortData((localData) =>
+    //         localData.sort((a, b) => a.rating - b.rating)
+    //       );
+    //     } else if (sort === "asc") {
+    //         setSortData((localData) =>
+    //         localData.sort((a, b) => a.totalPages - b.totalPages)
+    //       );
+    //     } else {
+    //         setSortData((localData) =>
+    //         localData.sort((a, b) => b.year - a.year)
+    //       );
+    //     }
+    //   }, [sort]);
 
     const [tabIndex, setTabIndex] = useState(0);
     const navigation = useNavigation();
@@ -46,7 +58,7 @@ const ListedBooks = () => {
                         
                         <li onClick={() => handleRating('rating') }><a>Rating</a></li>
                         <li onClick={() => handleRating('totalPage') }><a>Number of Pages</a></li>
-                        <li onClick={() => handleRating('yearOfPublishing') }><a>Published Year</a></li>
+                        <li onClick={() => handleRating('year') }><a>Published Year</a></li>
                     </ul>
                 </details>
             </div>
