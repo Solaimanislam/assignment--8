@@ -1,13 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, Outlet, useNavigation } from "react-router-dom";
 import Loader from "../Components/Loader";
 import { IoIosArrowDown } from "react-icons/io";
+import useLocalStorage from "../Hooks/useLocalStorage";
 
 
 const ListedBooks = () => {
+
+    const { localData } = useLocalStorage();
+    const [sortData, setSortData] = useState(localData || []);
+    const [sort, setSort] = useState([]);
+    // setSortData(localData);
+
+    useEffect(() => {
+        if (sortData === "newest") {
+          setSortData((prev) =>
+            [...prev].sort((a, b) => a.createdAt - b.createdAt)
+          );
+        } else if (sort === "asc") {
+            setSortData((prev) =>
+            [...prev].sort((a, b) => a.price - b.price)
+          );
+        } else {
+            setSortData((prev) =>
+            [...prev].sort((a, b) => b.price - a.price)
+          );
+        }
+      }, [sort]);
+
     const [tabIndex, setTabIndex] = useState(0);
     const navigation = useNavigation();
-    if (navigation.state === 'loading') return <Loader></Loader>
+    if (navigation.state === 'loading') return <Loader></Loader>;
+
+    
+
     return (
         <div>
             <div className=" flex justify-center items-center bg-slate-300 lg:py-16 rounded-xl">
@@ -17,10 +43,10 @@ const ListedBooks = () => {
                 <details className="dropdown ">
                     <summary className="m-1 btn bg-[#23BE0A] text-white px-10">Sort By<IoIosArrowDown></IoIosArrowDown> </summary>
                     <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                        <li><a>Sort By</a></li>
-                        <li><a>Rating</a></li>
-                        <li><a>Number of Pages</a></li>
-                        <li><a>Published Year</a></li>
+                        
+                        <li onClick={() => handleRating('rating') }><a>Rating</a></li>
+                        <li onClick={() => handleRating('totalPage') }><a>Number of Pages</a></li>
+                        <li onClick={() => handleRating('yearOfPublishing') }><a>Published Year</a></li>
                     </ul>
                 </details>
             </div>

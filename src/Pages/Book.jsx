@@ -7,6 +7,7 @@ import { saveBookW } from "../utils/WishIndex";
 
 const Book = () => {
     const book = useLoaderData() || [];
+    console.log(book);
 
 
     const [singleData, setSingleData] = useState({});
@@ -17,7 +18,7 @@ const Book = () => {
 
     useEffect(() => {
         const singleDataBook = book?.find((item) => item.bookId == id);
-        
+        // console.log(singleDataBook);
         setSingleData(singleDataBook)
     }, [data, id]);
 
@@ -28,7 +29,7 @@ const Book = () => {
         saveBook(singleData);
     }
     const handleWish = singleData => {
-        console.log(singleData);
+        // console.log(singleData);
         saveBookW(singleData);
     }
 

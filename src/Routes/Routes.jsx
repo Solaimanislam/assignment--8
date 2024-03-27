@@ -6,10 +6,12 @@ import Book from "../Pages/Book";
 import PageToRead from "../Pages/PageToRead";
 import ReadBook from "../Components/ReadBook";
 import Wishlist from "../Components/Wishlist";
+import ErrorPage from "../Pages/ErrorPage";
 
 export const router = createBrowserRouter([
     {
       path: '/',
+      errorElement: <ErrorPage></ErrorPage>,
       element: <MainLayouts></MainLayouts>,
       children: [
         {
