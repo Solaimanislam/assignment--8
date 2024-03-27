@@ -19,3 +19,13 @@ export const saveBook = book => {
     localStorage.setItem('booksW', JSON.stringify(books))
     toast.success('Books Added to Read!')
 }
+
+
+// sorting logic
+export const sortByKey = (data, key) => {
+    return data.slice().sort((a, b) => {
+        if (a[key] < b[key]) return 1;
+        if (a[key] > b[key]) return -1;
+        return 0;
+    });
+};

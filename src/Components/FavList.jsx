@@ -9,7 +9,7 @@ const FavList = () => {
     useEffect(() => {
         const wishedBooks = getBooksFav();
         setBooksFav(wishedBooks);
-        console.log(booksFav);
+        // console.log(booksFav);
     }, [])
     return (
         <div className="container lg:w-[830px] lg:mx-32 space-y-6 mt-8 ">

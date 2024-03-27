@@ -1,64 +1,37 @@
-import { useEffect, useState } from "react";
-import { Link, Outlet, useNavigation } from "react-router-dom";
+
+import { Link, useNavigation } from "react-router-dom";
 import Loader from "../Components/Loader";
 import { IoIosArrowDown } from "react-icons/io";
-import useLocalStorage from "../Hooks/useLocalStorage";
+
+import Wishlist from "../Components/Wishlist";
+import { getBooksW } from "../utils/WishIndex";
+import ReadBook from "../Components/ReadBook";
+import { getBooks } from "../utils";
+import { useState } from "react";
 
 
 const ListedBooks = () => {
-
-    const { localData } = useLocalStorage();
-    const [sortData, setSortData] = useState(localData || []);
-    const [sort, setSort] = useState([]);
-    // setSortData(localData);
-
-    const [lData, setLData] = useState([]);
-
-    useEffect(() => {
-        const sortsData = localData;
-        setSortData(sortsData);
-
-    }, [])
-
-    const handleRating = (localData) => {
-        console.log(localData);
-    }
-
-    // useEffect(() => {
-    //     if (sort === "rating") {
-    //       setSortData((localData) =>
-    //         localData.sort((a, b) => a.rating - b.rating)
-    //       );
-    //     } else if (sort === "asc") {
-    //         setSortData((localData) =>
-    //         localData.sort((a, b) => a.totalPages - b.totalPages)
-    //       );
-    //     } else {
-    //         setSortData((localData) =>
-    //         localData.sort((a, b) => b.year - a.year)
-    //       );
-    //     }
-    //   }, [sort]);
-
+    let booksW = getBooksW()
+    let books = getBooks()
+    const [sort, setSort] = useState(null);
+  
     const [tabIndex, setTabIndex] = useState(0);
     const navigation = useNavigation();
     if (navigation.state === 'loading') return <Loader></Loader>;
 
-    
-
     return (
-        <div>
-            <div className=" flex justify-center items-center bg-slate-300 lg:py-16 rounded-xl">
-                <h1 className=" lg:text-4xl lg:font-bold ">Books</h1>
+        <div className=" container mx-auto">
+            <div className=" flex justify-center items-center bg-slate-300 my-4 py-4 lg:py-16 rounded-xl">
+                <h1 className=" text-xl font-semibold lg:text-4xl lg:font-bold ">Books</h1>
             </div>
             <div className="flex justify-center items-center">
                 <details className="dropdown ">
-                    <summary className="m-1 btn bg-[#23BE0A] text-white px-10">Sort By<IoIosArrowDown></IoIosArrowDown> </summary>
+                    <summary className="m-1 mb-3 btn bg-[#23BE0A] text-white px-10">Sort By<IoIosArrowDown></IoIosArrowDown> </summary>
                     <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                        
-                        <li onClick={() => handleRating('rating') }><a>Rating</a></li>
-                        <li onClick={() => handleRating('totalPage') }><a>Number of Pages</a></li>
-                        <li onClick={() => handleRating('year') }><a>Published Year</a></li>
+
+                        <li onClick={() => setSort('rating')}><a>Rating</a></li>
+                        <li onClick={() => setSort('totalPages')}><a>Number of Pages</a></li>
+                        <li onClick={() => setSort('yearOfPublishing')}><a>Published Year</a></li>
                     </ul>
                 </details>
             </div>
@@ -82,7 +55,8 @@ const ListedBooks = () => {
                 </Link>
 
             </div>
-            <Outlet></Outlet>
+            {tabIndex === 0 ? <ReadBook books={books} sort={sort} />
+             : <Wishlist booksW={booksW} sort={sort} />}
         </div>
 
     );

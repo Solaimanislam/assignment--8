@@ -1,20 +1,15 @@
-import { useEffect, useState } from "react";
+/* eslint-disable react/prop-types */
 
-
-import { getBooksW } from "../utils/WishIndex";
+import { sortByKey } from "../utils";
 import WishCard from "./WishCard";
 
-const Wishlist = () => {
-    const [booksW, setBooksW] = useState([]);
-    useEffect(() => {
-        const wishedBooks = getBooksW();
-        setBooksW(wishedBooks);
-    }, [])
+const Wishlist = ({ booksW, sort }) => {
+    const sortedData = sortByKey(booksW, sort);
 
     return (
         <div className="container lg:w-[830px] lg:mx-32 space-y-6 mt-8 ">
             {
-                booksW?.map(book => <WishCard book={book} key={book.bookId} ></WishCard>)
+                sortedData?.map(book => <WishCard book={book} key={book.bookId} ></WishCard>)
             }
         </div>
     );
