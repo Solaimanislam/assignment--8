@@ -34,27 +34,31 @@ const PageToRead = () => {
 
 
   return (
-    <ResponsiveContainer width={1200} height={400}>
-      <BarChart
-        
-        data={localData}
-        margin={{
-          top: 20,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="bookName" />
-        <YAxis />
-        <Bar dataKey="totalPages" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
-          {localData.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-          ))}
-        </Bar>
-      </BarChart>
-    </ResponsiveContainer>
+    <div className="bar" style={{width:"100%", height: '300px'}}>
+      <div className="bar-container" style={{width: "100%", height: '100%'}}>
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart
+
+            data={localData}
+            margin={{
+              top: 20,
+              right: 30,
+              
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="bookName" width={400} tickLine={false} axisLine={false} type="category" />
+            <YAxis />
+            <Bar dataKey="totalPages" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+              {localData.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+              ))}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
   );
 };
 
