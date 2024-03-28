@@ -34,7 +34,7 @@ const PageToRead = () => {
 
 
   return (
-    <div className="bar" style={{width:"100%", height: '300px'}}>
+    <div className="bar mt-8 lg:m-0" style={{width:"100%", height: '500px'}}>
       <div className="bar-container" style={{width: "100%", height: '100%'}}>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
@@ -48,7 +48,7 @@ const PageToRead = () => {
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="bookName" width={400} tickLine={false} axisLine={false} type="category" />
+            <XAxis dataKey="bookName" width="100%" tickLine={false} axisLine={false} type="category" />
             <YAxis />
             <Bar dataKey="totalPages" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
               {localData.map((entry, index) => (
